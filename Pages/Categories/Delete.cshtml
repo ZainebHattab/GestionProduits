@@ -1,0 +1,24 @@
+@page "{id:int}"
+@model GestionProduits.Pages.Categories.DeleteModel
+@{ ViewData["Title"] = "Supprimer la catégorie"; }
+
+<h1>Supprimer cette catégorie ?</h1>
+
+<div class="form-container">
+    @if (Model.Erreur != null)
+    {
+        <div class="alert alert-danger text-center">@Model.Erreur</div>
+    }
+
+    <dl class="row">
+        <dt class="col-sm-4">Nom</dt>
+        <dd class="col-sm-8">@Model.Categorie.Nom</dd>
+        <dt class="col-sm-4">Produits</dt>
+        <dd class="col-sm-8">@Model.Categorie.Produits.Count</dd>
+    </dl>
+
+    <form method="post" class="d-flex gap-2 justify-content-center">
+        <button type="submit" class="btn btn-danger">Confirmer la suppression</button>
+        <a asp-page="Index" class="btn btn-secondary">Annuler</a>
+    </form>
+</div>
